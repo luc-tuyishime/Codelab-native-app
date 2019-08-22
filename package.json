@@ -5,8 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject",
-    "test": "jest --coverage -u"
+    "eject": "expo eject"
   },
   "dependencies": {
     "enzyme": "^3.10.0",
