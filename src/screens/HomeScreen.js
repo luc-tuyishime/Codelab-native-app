@@ -1,13 +1,22 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Text, StyleSheet, View } from 'react-native';
 
-const HomeScreen = () => {
-  return <Text style={styles.text}>Codelab....</Text>;
-};
+class HomeScreen extends Component {
+  render() {
+    return (
+      <View style={styles.Container}>
+        <Text>Codelab....is for me</Text>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 30
+  Container: {
+    fontSize: 30,
+    flex: 1, 
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
