@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import firebase from 'firebase';
+import { loadingIcon } from '../styles/LoadingStyle';
 
 class LoadingScreen extends Component {
 
@@ -16,20 +17,13 @@ class LoadingScreen extends Component {
  }
   render() {
     return (
-      <View style={styles.Container}>
+      <View style={loadingIcon.Container}>
         <ActivityIndicator size="large" color="#2196f3"/>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  Container: {
-    fontSize: 30,
-    flex: 1, 
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+
 
 export default LoadingScreen;
