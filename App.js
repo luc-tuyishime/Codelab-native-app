@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { ApolloProvider } from 'react-apollo';
 import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import LoadingScreen from './src/screens/LoadingScreen';
+import { client } from './src/helpers/Connection';
 
 import firebase from 'firebase';
 import { firebaseConfig } from './config';
 firebase.initializeApp(firebaseConfig)
+
 
 const navigator = createStackNavigator(
   {
@@ -21,7 +24,9 @@ const AppNavigator =  createAppContainer(navigator);
 class App extends Component {
   render(){
     return(
+      <ApolloProvider client={client}>
       <AppNavigator />
+      </ApolloProvider>
     )
   }
 }
