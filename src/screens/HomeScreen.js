@@ -9,6 +9,7 @@ import {
   
 } from "react-native";
 import firebase from "firebase";
+import { SearchBar, Button } from 'react-native-elements';
 import { styles } from "../styles/LogoutStyle";
 import { graphql } from "react-apollo";
 import { getUsers } from "../helpers/graphqlQuery";
@@ -18,7 +19,16 @@ import { imageStyle } from "../styles/ImageStyle";
 
 
 class HomeScreen extends Component {
+  state = {
+    searchUser: '',
+  }
+
+  updateSearch = search => {
+    this.setState({ searchUser });
+  };
+
   render() {
+    const { searchUser } = this.state;
     const {
       data: { search, loading }
     } = this.props;
@@ -28,14 +38,15 @@ class HomeScreen extends Component {
         <ActivityIndicator size="large" color="#2196f3" />
       </View>
     ) : (
-      <View style={styles.container}>
-        {/* <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => firebase.auth().signOut()}
-        >
-          <Text style={styles.buttonText}>Log out</Text>
-        </TouchableOpacity> */}
-
+      <View>
+        
+        <SearchBar
+        lightTheme round 
+        placeholder="Type Here..."
+        onChangeText={this.updateSearch}
+        value={searchUser}
+      />
+        
         <FlatList
           data={usersList}
           keyExtractor={(item, key) => `${item} ${key}`}
@@ -63,6 +74,12 @@ class HomeScreen extends Component {
             </View>
           )}
         />
+        <View style={styles.buttonLogout}>
+        <Button
+          title="Sign Out"
+          onPress={() => firebase.auth().signOut()}
+        />
+        </View>
       </View>
     );
   }

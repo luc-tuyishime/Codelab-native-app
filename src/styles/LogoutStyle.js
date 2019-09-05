@@ -1,8 +1,9 @@
 export const styles = {
     buttonLogout: {
         backgroundColor: 'blue',
-        paddingVertical: 15,
-        borderRadius: 10
+        flex: 1,
+        justifyContent: 'flex-end'
+
     },
     buttonText: {
         textAlign: 'center',
@@ -50,5 +51,8 @@ export const styles = {
         marginTop: 15,
         height: 1,
         width: '100%'
+      },
+      username: {
+        color: '#9e9e9e'
       }
 }

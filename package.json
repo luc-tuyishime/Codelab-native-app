@@ -5,16 +5,21 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "test": "jest --coverage -u",
+    "eject": "expo eject",
+    "coveralls":"cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "apollo-boost": "^0.4.4",
     "apollo-client": "^2.6.4",
+    "enzyme-to-json": "^3.4.0",
     "expo": "^33.0.0",
     "firebase": "^6.5.0",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
     "jest": "^24.9.0",
+    "jest-config": "^24.9.0",
+    "jest-expo": "^34.0.1",
     "react": "16.8.3",
     "react-apollo": "^3.0.1",
     "react-dom": "^16.8.6",
@@ -26,7 +31,9 @@
     "react-test-renderer": "^16.9.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "babel-preset-expo": "^5.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
   },
   "private": true
 }

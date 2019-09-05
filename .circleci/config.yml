@@ -2,7 +2,36 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:10.0-browsers
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run:
+          name: 'Install Dependencies'
+          command: npm i
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: 'Set up env variables'
+          command: |
+            echo 'STORAGE_KEY="@LJ APP:GoogleOAuthKey"' >> .env
+            echo 'AUTHORIZATION_KEY="96844f816421cf29744e1e56846f0af6b203def7"' >> .env
+            echo 'ISSUER_URL="https://accounts.google.com"' >> .env
+            echo 'CLIENT_ID="687916247467-6dt3274n9544kfk53udm2di107vvmahe.apps.googleusercontent.com"' >> .env 
+            echo 'API_URL="https://oauth2.googleapis.com/tokeninfo"' >> .env
+            echo 'CC_TEST_REPORTER_ID="1654681f8a7e5e88b644a35699f54c68e6f6d35162f888fc888eb6555c3eb70b"' >> .env
+      - run:
+          name: 'Run the tests and collect coverage'
+          command: |
+            ./cc-test-reporter before-build
+            yarn run test
+            ./cc-test-reporter after-build --exit-code $?
+      - run:
+          name: 'Submit the coverage report to coveralls'
+          command: yarn run coveralls
