@@ -7,11 +7,12 @@
     "web": "expo start --web",
     "test": "jest --coverage -u",
     "eject": "expo eject",
-    "coveralls":"cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "apollo-boost": "^0.4.4",
     "apollo-client": "^2.6.4",
+    "coveralls": "^3.0.6",
     "enzyme-to-json": "^3.4.0",
     "expo": "^33.0.0",
     "firebase": "^6.5.0",
