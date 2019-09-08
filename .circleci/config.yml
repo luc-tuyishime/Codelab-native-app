@@ -20,7 +20,7 @@ jobs:
       - run:
           name: 'Set up env variables'
           command: |            
-            echo 'ACCESS_TOKEN="44150f4bc2bf8f0990123b52e136157a37534aa9"' >> .env 
+            echo 'ACCESS_TOKEN="bbe12a8840eba93259348d51091df547268dbb53"' >> .env 
             echo 'CC_TEST_REPORTER_ID="03cc699fd7f7c3bdfe1fa5a91027299e48b840fa5d7fab8970454ac4d8ab53b6"' >> .env
       - run:
           name: 'Run the tests and collect coverage'

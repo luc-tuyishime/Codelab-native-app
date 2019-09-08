@@ -1,10 +1,4 @@
 export const styles = {
-    buttonLogout: {
-        backgroundColor: 'blue',
-        flex: 1,
-        justifyContent: 'flex-end'
-
-    },
     buttonText: {
         textAlign: 'center',
         color: 'rgb(32,53,70)',
@@ -28,6 +22,24 @@ export const styles = {
       flexWrap: 'wrap',
       alignItems: 'flex-start' // if you want to fill rows left to right
     },
+
+    containerTop: {
+      flexDirection: 'row',
+      borderBottomColor: '#eeeeee',
+      borderBottomWidth: 1,
+    },
+
+    searchWidth: {
+      width: '70%',
+      height: '30%'
+    },
+
+    buttonWidth: {
+      width: '30%',
+      paddingTop: '2%',
+      paddingRight: '3%'
+    },
+
     item1: {
       width: '25%' // is 50% of container width
     },
@@ -47,12 +59,21 @@ export const styles = {
       color: '#00c853'
     },
     hairline: {
-        backgroundColor: '#eeeeee',
-        marginTop: 15,
-        height: 1,
-        width: '100%'
-      },
-      username: {
-        color: '#9e9e9e'
-      }
+      backgroundColor: '#eeeeee',
+      marginTop: 15,
+      height: 1,
+      width: '100%'
+    },
+    username: {
+      color: '#9e9e9e'
+    },
+    searchContainer: {
+      backgroundColor: '#fff',  
+      shadowOpacity: 0,
+      borderBottomWidth: 0,
+    },
+    searchStyle: {
+      color: 'red',
+      backgroundColor: 'black' 
+    }  
 }

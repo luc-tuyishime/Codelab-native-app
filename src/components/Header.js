@@ -17,8 +17,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    borderColor: '#fff',
-    borderBottomWidth: 4,
     marginBottom: 15
   }
 }
