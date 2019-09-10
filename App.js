@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import LoadingScreen from './src/screens/LoadingScreen';
+import  ProfileScreen  from './src/screens/ProfileScreen';
 import { client } from './src/helpers/Connection';
 
 import firebase from 'firebase';
@@ -16,6 +17,7 @@ const navigator = createStackNavigator(
     LoadingScreen: LoadingScreen,
     HomeScreen: HomeScreen,
     LoginScreen: LoginScreen,
+    ProfileScreen: ProfileScreen
   }
 );
 
@@ -25,7 +27,7 @@ class App extends Component {
   render(){
     return(
       <ApolloProvider client={client}>
-      <AppNavigator />
+        <AppNavigator />
       </ApolloProvider>
     )
   }
