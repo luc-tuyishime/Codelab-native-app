@@ -1,14 +1,13 @@
-import { Share } from "react-native";
+import React, { Component } from 'react'
+import { Text, View ,WebView} from 'react-native'
 
-shareProfile = async (login, url) => {
-  try {
-    await Share.share({
-      message: `Click the Url to visit @${login}, ${url}`,
-      title: "GitHub Profile"
-    });
-  } catch (error) {
-    alert(error.message);
+export default class ShareProfile extends Component {
+  render() {
+      const { navigation:{state:{params:{url:uri}}} } = this.props
+    return (
+      <View style={{flex:1}}>
+       <WebView source={{uri}}/>
+      </View>
+    )
   }
-};
-
-export default shareProfile;
+}
