@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, FlatList, Image, ActivityIndicator } from "react-native";
+import { Text, View, FlatList, Image, ActivityIndicator, TouchableWithoutFeedback } from "react-native";
 import firebase from "firebase";
-import _ from 'lodash';
 import { SearchBar, Button } from "react-native-elements";
 import { styles } from "../styles/LogoutStyle";
 import { graphql } from "react-apollo";
@@ -48,6 +47,7 @@ class HomeScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     const { query, fullFilteredData, loading } = this.state;
 
     const usersList = users(fullFilteredData);
@@ -84,6 +84,7 @@ class HomeScreen extends Component {
           data={usersList}
           keyExtractor={(item, key) => `${item} ${key}`}
           renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => navigate('ProfileScreen', { item: item })}>
             <View style={styles.container}>
               <View style={styles.item1}>
                 <Image
@@ -105,6 +106,7 @@ class HomeScreen extends Component {
               </View>
               <View style={styles.hairline} />
             </View>
+            </TouchableWithoutFeedback>
           )}
         />
       </View>

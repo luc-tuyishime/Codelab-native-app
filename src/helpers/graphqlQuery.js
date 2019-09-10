@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const getUsers = gql`
 query fetchUsers {
-  search(query: "location:rwanda", type: USER, first: 100) {
+  search(query: "location:kigali", type: USER, first: 100) {
     edges {
       cursor
       node {
